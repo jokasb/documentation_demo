@@ -26,60 +26,41 @@
         <version>0.9.0</version>
     </parent>
 
-    <groupId>com.stratio.receiver</groupId>
+    <groupId>com.telesign.receiver</groupId>
     <artifactId>spark-rabbitmq</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <version>0.1.5</version>
+    <packaging>jar</packaging>
+	
+	<distributionManagement>
+  <repository>
+    <id>packagecloud-jbajic</id>
+    <url>packagecloud+https://packagecloud.io/jbajic/demdoc</url>
+  </repository>
+  <snapshotRepository>
+    <id>packagecloud-jbajic</id>
+    <url>packagecloud+https://packagecloud.io/jbajic/demdoc</url>
+  </snapshotRepository>
+</distributionManagement>
 
 
-    <url>https://github.com/Stratio/RabbitMQ-Receiver</url>
+     
     <name>Spark Streaming RabbitMQ Receiver</name>
 
     <description>
         RabbitMQ-Receiver is a library that allows the user to read data with Apache Spark from RabbitMQ.
     </description>
 
-    <scm>
-        <url>https://github.com/Stratio/RabbitMQ-Receiver.git</url>
-        <connection>scm:git:git://github.com/Stratio/RabbitMQ-Receiver.git</connection>
-        <developerConnection>scm:git:git@github.com:Stratio/RabbitMQ-Receiver.git</developerConnection>
-        <tag>HEAD</tag>
-    </scm>
-
-    <developers>
-        <developer>
-            <id>jcgarcia</id>
-            <name>Jose Carlos Garcia</name>
-            <email>jcgarcia@stratio.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>gschiavon</id>
-            <name>Germán Schiavón</name>
-            <email>gschiavon@stratio.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>
-        <developer>
-            <id>dcarroza</id>
-            <name>Daniel Carroza Santana</name>
-            <email>dcarroza@stratio.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-        </developer>
-    </developers>
+     
+ 
 
     <properties>
+		<maven.test.skip>true</maven.test.skip>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <scala.version>2.11.8</scala.version>
         <scala.binary.version>2.11</scala.binary.version>
         <rabbitmq.version>3.6.6</rabbitmq.version>
-        <spark.version>2.2.0</spark.version>
+        <spark.version>2.3.0</spark.version>
         <akka.version>2.5.3</akka.version>
         <joda.version>2.8.2</joda.version>
         <scalatest.version>2.2.2</scalatest.version>
@@ -153,6 +134,13 @@
         </dependency>
     </dependencies>
     <build>
+		<extensions>
+		<extension>
+		  <groupId>io.packagecloud.maven.wagon</groupId>
+		  <artifactId>maven-packagecloud-wagon</artifactId>
+		  <version>0.0.6</version>
+		</extension>
+	  </extensions>
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
